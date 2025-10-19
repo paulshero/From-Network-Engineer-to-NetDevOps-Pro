@@ -10,4 +10,12 @@ all:
         -oKexAlgorithms=+diffie-hellman-group1-sha1
         -oHostKeyAlgorithms=+ssh-rsa
         -oPubkeyAcceptedAlgorithms=+ssh-rsa
-        
+    junos1:
+      ansible_host: 192.168.0.212
+      ansible_user: paul
+      ansible_password: labl123
+      ansible_network_os: juniper.junos.junos
+      ansible_connection: netconf
+      ansible_port: 830
+      
+      
