@@ -1,0 +1,15 @@
+---
+- name: Get Junos show version
+  hosts: junos
+  gather_facts: no
+
+  tasks:
+    - name: Run "show version" and request JSON
+      junipernetworks.junos.junos_command:
+        commands: ["show version"]
+        display: json
+      register: ver
+
+    - name: Pretty print version info
+      debug:
+        msg: "{{ ver.stdout[0] | to_nice_yaml }}"
